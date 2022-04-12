@@ -11,7 +11,6 @@ import javax.annotation.security.PermitAll;
 
 @PageTitle("Hello World")
 @Route(value = "hello")
-@RouteAlias(value = "")
 @PermitAll
 public class HelloWorldView extends HorizontalLayout {
 

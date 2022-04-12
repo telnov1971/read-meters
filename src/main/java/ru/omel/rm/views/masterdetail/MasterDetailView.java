@@ -15,10 +15,7 @@ import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.binder.BeanValidationBinder;
 import com.vaadin.flow.data.binder.ValidationException;
 import com.vaadin.flow.data.converter.StringToIntegerConverter;
-import com.vaadin.flow.router.BeforeEnterEvent;
-import com.vaadin.flow.router.BeforeEnterObserver;
-import com.vaadin.flow.router.PageTitle;
-import com.vaadin.flow.router.Route;
+import com.vaadin.flow.router.*;
 import com.vaadin.flow.spring.data.VaadinSpringDataHelpers;
 import java.util.Optional;
 import java.util.UUID;
@@ -30,6 +27,7 @@ import ru.omel.rm.data.service.ValuesMetersService;
 
 @PageTitle("Master-Detail")
 @Route(value = "master-detail/:valuesMetersID?/:action?(edit)")
+@RouteAlias(value = "")
 @PermitAll
 @Tag("master-detail-view")
 @JsModule("./views/masterdetail/master-detail-view.ts")
