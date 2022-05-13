@@ -1,6 +1,6 @@
 package ru.omel.rm.data.entity;
 
-import java.util.UUID;
+import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
@@ -10,13 +10,14 @@ public abstract class AbstractEntity {
 
     @Id
     @GeneratedValue
-    private UUID id;
+    @Column(nullable = false)
+    private Long id;
 
-    public UUID getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
