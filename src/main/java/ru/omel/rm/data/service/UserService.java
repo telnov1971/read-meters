@@ -38,4 +38,7 @@ public class UserService {
         return (int) repository.count();
     }
 
+    public User findByUsername(String value) {
+        return repository.findByUsername(value);
+    }
 }

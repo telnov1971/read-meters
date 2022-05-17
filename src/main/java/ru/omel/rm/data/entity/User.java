@@ -7,21 +7,21 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
-import javax.persistence.Lob;
 import javax.persistence.Table;
+
 import ru.omel.rm.data.Role;
 
 @Entity
 @Table(name = "application_user")
 public class User extends AbstractEntity {
-
     private String username;
-    private String name;
     @JsonIgnore
-    private String hashedPassword;
+    private String password;
     @Enumerated(EnumType.STRING)
     @ElementCollection(fetch = FetchType.EAGER)
     private Set<Role> roles;
+
+    private boolean changePassword = false;
 
     public String getUsername() {
         return username;
@@ -29,17 +29,11 @@ public class User extends AbstractEntity {
     public void setUsername(String username) {
         this.username = username;
     }
-    public String getName() {
-        return name;
+    public String getPassword() {
+        return password;
     }
-    public void setName(String name) {
-        this.name = name;
-    }
-    public String getHashedPassword() {
-        return hashedPassword;
-    }
-    public void setHashedPassword(String hashedPassword) {
-        this.hashedPassword = hashedPassword;
+    public void setPassword(String hashedPassword) {
+        this.password = hashedPassword;
     }
     public Set<Role> getRoles() {
         return roles;
@@ -47,5 +41,10 @@ public class User extends AbstractEntity {
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
     }
-
+    public boolean isChangePassword() {
+        return changePassword;
+    }
+    public void setChangePassword(boolean changePassword) {
+        this.changePassword = changePassword;
+    }
 }

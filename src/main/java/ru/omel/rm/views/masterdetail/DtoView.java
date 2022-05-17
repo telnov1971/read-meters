@@ -14,13 +14,14 @@ import ru.omel.rm.data.dto.PokPuDto;
 import ru.omel.rm.data.service.DogService;
 import ru.omel.rm.data.service.PokService;
 import ru.omel.rm.data.service.PuService;
+import ru.omel.rm.views.main.MainView;
 
 import javax.annotation.security.PermitAll;
 import java.util.List;
 
 @PageTitle("Показания счетчиков")
-@Route(value = "/")
-//@RouteAlias(value = "")
+@Route(value = "/meters", layout = MainView.class)
+@RouteAlias(value = "", layout = MainView.class)
 @PermitAll
 @Tag("master-detail-view")
 @JsModule("./views/masterdetail/master-detail-view.ts")

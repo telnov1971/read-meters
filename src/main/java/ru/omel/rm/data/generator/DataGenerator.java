@@ -1,10 +1,7 @@
 package ru.omel.rm.data.generator;
 
-import com.vaadin.exampledata.DataType;
-import com.vaadin.exampledata.ExampleDataGenerator;
 import com.vaadin.flow.spring.annotation.SpringComponent;
 
-import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.Set;
 
@@ -114,16 +111,16 @@ public class DataGenerator {
             logger.info("... generating 2 User entities...");
 
             User user = new User();
-            user.setName("Simple User");
             user.setUsername("user");
-            user.setHashedPassword(passwordEncoder.encode("user"));
+            user.setPassword(passwordEncoder.encode("user"));
             user.setRoles(Collections.singleton(Role.USER));
+            user.setChangePassword(false);
             userRepository.save(user);
             User admin = new User();
-            admin.setName("Super Admin");
             admin.setUsername("admin");
-            admin.setHashedPassword(passwordEncoder.encode("admin"));
+            admin.setPassword(passwordEncoder.encode("admin"));
             admin.setRoles(Set.of(Role.USER, Role.ADMIN));
+            admin.setChangePassword(false);
             userRepository.save(admin);
             logger.info("Loaded data");
         };

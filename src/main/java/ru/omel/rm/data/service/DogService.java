@@ -3,6 +3,7 @@ package ru.omel.rm.data.service;
 import org.springframework.stereotype.Service;
 import ru.omel.rm.data.entity.Dog;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -23,5 +24,9 @@ public class DogService {
 
     public void deleteAll() {
         dogRepository.deleteAll();
+    }
+
+    public List<Dog> findAll() {
+        return dogRepository.findAll();
     }
 }
